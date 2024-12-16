@@ -23,4 +23,13 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+
+add_executable(simple_publisher src/simple_publisher.cpp)  # Replace `my_node.cpp` with your source file
+
+ament_target_dependencies(simple_publisher rclcpp std_msgs)
+install(TARGETS simple_publisher DESTINATION lib/${PROJECT_NAME})
+
 ament_package()
